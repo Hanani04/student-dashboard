@@ -1,0 +1,295 @@
+/* ==========================================================================
+   IMS566 INDIVIDUAL PROJECT - HIGH SCHOOL DASHBOARD MASTER STYLESHEET
+   ========================================================================== */
+
+:root {
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --accent: #38bdf8;
+    --bg: #f8fafc;
+    --text-color: #1e293b;
+    --card-bg: #ffffff;
+    --card-border: #f1f5f9;
+    --table-th-bg: #f8fafc;
+    --table-th-text: #334155;
+    --table-border: #e2e8f0;
+    --table-td-hover: #f1f5f9;
+    --footer-bg: #ffffff;
+    --footer-text: #94a3b8;
+    --card-radius: 20px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+    --bg: #0f172a;
+    --text-color: #f1f5f9;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+    --table-th-bg: #1e293b;
+    --table-th-text: #cbd5e1;
+    --table-border: #334155;
+    --table-td-hover: #334155;
+    --footer-bg: #1e293b;
+    --footer-text: #64748b;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    margin: 0;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: var(--transition);
+}
+
+/* NAVBAR STRUCTURE WITH HAMBURGER */
+.navbar {
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    padding: 16px 0;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.navbar a.nav-item {
+    color: rgba(255,255,255,0.75);
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    transition: var(--transition);
+}
+
+.navbar a.nav-item:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar a.active-link {
+    color: #fff;
+    background: rgba(2, 132, 199, 0.3);
+    border-left: 3px solid var(--accent);
+}
+
+.navbar a.logout-btn {
+    color: #fda4af;
+    background: rgba(225, 29, 72, 0.1);
+}
+
+.navbar a.logout-btn:hover {
+    color: #fff;
+    background: #e11d48;
+}
+
+/* BUTTON HAMBURGER STYLE */
+.hamburger-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 0;
+}
+
+.hamburger-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 2px;
+    transition: var(--transition);
+}
+
+.hamburger-toggle.open span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+.hamburger-toggle.open span:nth-child(2) { opacity: 0; }
+.hamburger-toggle.open span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+
+/* INTERACTIVE SUN/MOON THEME TOGGLE BUTTON */
+.theme-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: var(--transition);
+    color: #f59e0b;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* GRID CONTAINER & TYPOGRAPHY */
+.container { width: 90%; max-width: 1200px; margin: auto; padding: 40px 0; }
+
+.page-title { margin-bottom: 40px; }
+.page-title h2 { font-size: 28px; margin: 0; }
+.page-title p { margin-top: 5px; }
+
+.row { 
+    display: flex; 
+    gap: 24px; 
+    row-gap: 32px; 
+    flex-wrap: wrap; 
+}
+.row.mb-4 { margin-bottom: 32px !important; }
+
+/* KELAS KHAS UNTUK COLS LAYOUT (MENENTUKAN KELEBARAN KOTAK BAWAH) */
+.col { flex: 1; min-width: 240px; }
+.col-table { flex: 1.6; min-width: 320px; }
+.col-koko { flex: 0.9; min-width: 280px; }
+
+/* CARDS STRUCTURAL CUSTOM STYLES */
+.card-custom {
+    background: var(--card-bg);
+    border-radius: var(--card-radius);
+    padding: 28px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+    border: 1px solid var(--card-border);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    color: var(--text-color);
+}
+.card-custom h4 { font-weight: 700; margin-top: 0; margin-bottom: 20px; }
+.card-custom p { margin: 0; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+.card-custom:hover { transform: translateY(-6px); box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1); }
+.card-custom::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--primary); }
+
+/* KAD COUNTDOWN (KOD BERPINDAH DARI INLINE) */
+.card-countdown-banner {
+    background: linear-gradient(135deg, #0284c7, #0369a1) !important; 
+    color: white !important; 
+    border: none !important;
+    margin-bottom: 32px !important;
+}
+.card-countdown-banner::before { display: none; } /* Buang line biru tepi */
+
+.countdown-flex-wrapper { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 15px; }
+.countdown-title { margin: 0; font-weight: 700; font-size: 20px; letter-spacing: 0.5px; }
+.countdown-subtitle { margin: 5px 0 0 0; opacity: 0.8; font-size: 13px; text-transform: none; }
+
+.countdown-timer-display { display: flex; gap: 15px; font-weight: 800; font-size: 24px; text-align: center; }
+.countdown-box { background: rgba(255,255,255,0.2); padding: 8px 12px; border-radius: 10px; display: block; }
+.countdown-label { font-size: 11px; display: block; margin-top: 5px; opacity: 0.9; }
+
+/* KAD STATISTIK NOMBOR (KOD BERPINDAH DARI INLINE) */
+.stat-number { font-size: 38px; font-weight: 800; margin-top: 10px; }
+.stat-blue { color: #0284c7; }
+.stat-green { color: #10b981; }
+.stat-green-ppt { color: #10b981; font-size: 32px; margin-top: 15px; letter-spacing: -0.5px; }
+.stat-orange { color: #f59e0b; }
+.stat-desc { margin-top: 5px; display: block; }
+
+.progress-container { margin-top: 15px; background: #e2e8f0; border-radius: 10px; height: 10px; overflow: hidden; }
+.progress-bar { background: #10b981; height: 100%; transition: width 0.5s ease; }
+
+/* TABLES WITH EXTENDED PADDING */
+.table-custom {
+    width: 100%;
+    background: var(--card-bg);
+    border-collapse: collapse;
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    border: 1px solid var(--table-border);
+    margin-top: 15px;
+}
+.table-dashboard-override { box-shadow: none !important; border: none !important; }
+
+.table-custom th {
+    background: var(--table-th-bg);
+    padding: 20px 24px;
+    font-weight: 700;
+    color: var(--table-th-text);
+    border-bottom: 2px solid var(--table-border);
+    font-size: 14px;
+    text-align: left;
+    letter-spacing: 0.5px;
+}
+
+.table-custom td { 
+    padding: 22px 24px; 
+    border-bottom: 1px solid var(--table-border); 
+    color: var(--text-color); 
+    font-size: 15px; 
+    vertical-align: middle; 
+}
+.table-custom tr:hover td { background-color: var(--table-td-hover); }
+
+/* KOKURIKULUM ITEMS (KOD BERPINDAH DARI INLINE) */
+.koko-item { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed var(--table-border); }
+.koko-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.koko-badge-margin { margin-bottom: 5px; }
+.koko-title { margin: 0; font-weight: 700; }
+
+.badge { padding: 6px 14px; border-radius: 10px; font-size: 12px; font-weight: 700; display: inline-block; }
+.badge-success { background: #bbf7d0; color: #15803d; }
+.badge-warning { background: #fef08a; color: #a16207; }
+.badge-info { background: #e0f2fe; color: #0369a1; }
+
+/* LOGIN VIEW */
+.login-body { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); height: 100vh; }
+.login-card { background: rgba(255, 255, 255, 0.95); border: none; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
+.login-card .form-control { border-radius: 12px; padding: 12px 16px; border: 1px solid #e2e8f0; background-color: #f8fafc; }
+.btn-login { border-radius: 12px; padding: 12px; font-weight: 600; background: linear-gradient(45deg, #0284c7, #38bdf8); border: none; }
+
+footer { text-align: center; padding: 30px; background: var(--footer-bg); border-top: 1px solid var(--table-border); color: var(--footer-text); font-size: 13px; margin-top: auto; transition: var(--transition); }
+
+@media (max-width: 768px) {
+    .hamburger-toggle { display: flex; }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #1e293b;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav-links.open { display: flex; }
+    .navbar a.nav-item { width: 85%; margin: 8px 0; padding: 12px 16px; box-sizing: border-box; text-align: center; }
+    .theme-toggle-btn { margin: 12px 0; }
+    .row { flex-direction: column; }
+}

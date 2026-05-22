@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utama Dashboard - Portal Pelajar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+    <script>checkAuth();</script>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="nav-container">
+        <a href="dashboard.html" class="nav-brand">Portal Murid</a>
+        <button class="hamburger-toggle" id="burgerIcon" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="nav-links" id="navLinks">
+            <a href="dashboard.html" class="nav-item active-link">Dashboard</a>
+            <a href="tasks.html" class="nav-item">Tugasan</a>
+            <a href="students.html" class="nav-item">Profil & Kelas</a>
+            <button id="themeBtn" class="theme-toggle-btn" onclick="toggleTheme()">🌙</button>
+            <a href="#" onclick="logout()" class="nav-item logout-btn">Log Keluar</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="page-title">
+        <h2>Ringkasan Prestasi</h2>
+        <p class="text-muted">Analisis keseluruhan pencapaian akademik, kokurikulum dan status tugasan semasa.</p>
+    </div>
+
+    <div class="card-custom card-countdown-banner">
+        <div class="countdown-flex-wrapper">
+            <div>
+                <h4 class="countdown-title">⏳ COUNTDOWN PEPERIKSAAN AKHIR TAHUN</h4>
+                <p class="countdown-subtitle">Tarikh Mula: 15 Oktober 2026</p>
+            </div>
+            <div id="exam-countdown" class="countdown-timer-display">
+                <div><span id="cd-days" class="countdown-box">00</span><small class="countdown-label">Hari</small></div>
+                <div><span id="cd-hours" class="countdown-box">00</span><small class="countdown-label">Jam</small></div>
+                <div><span id="cd-minutes" class="countdown-box">00</span><small class="countdown-label">Minit</small></div>
+                <div><span id="cd-seconds" class="countdown-box">00</span><small class="countdown-label">Saat</small></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col card-custom">
+            <p>Ujian Selaras 1</p>
+            <div class="stat-number stat-blue">85%</div>
+            <small class="text-muted">Purata Markah Keseluruhan</small>
+        </div>
+        
+        <div class="col card-custom">
+            <p>Peperiksaan Pertengahan Tahun</p>
+            <div class="stat-number stat-green-ppt">1A+, 3A, 1B+</div>
+            <small class="text-muted stat-desc">Ringkasan Pencapaian Gred</small>
+        </div>
+        
+        <div class="col card-custom">
+            <p>Status Tugasan Semasa</p>
+            <div class="stat-number stat-orange">75%</div>
+            <div class="progress-container"><div class="progress-bar" style="width: 75%;"></div></div>
+            <small class="text-muted mt-2 d-block">15 daripada 20 Tugasan Selesai</small>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-table">
+            <div class="card-custom">
+                <h4>Keputusan Mengikut Subjek</h4>
+                <div style="overflow-x: auto;">
+                    <table class="table-custom table-dashboard-override">
+                        <thead>
+                            <tr>
+                                <th>Subjek</th>
+                                <th>Test</th>
+                                <th>Gred</th>
+                                <th>PPT</th>
+                                <th>Gred</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Bahasa Melayu</td><td>88</td><td><span class="badge badge-success">A</span></td><td>92</td><td><span class="badge badge-success">A+</span></td></tr>
+                            <tr><td>Bahasa Inggeris</td><td>82</td><td><span class="badge badge-success">A</span></td><td>85</td><td><span class="badge badge-success">A</span></td></tr>
+                            <tr><td>Matematik</td><td>78</td><td><span class="badge badge-warning">B+</span></td><td>80</td><td><span class="badge badge-success">A</span></td></tr>
+                            <tr><td>Sains</td><td>70</td><td><span class="badge badge-warning">B</span></td><td>76</td><td><span class="badge badge-warning">B+</span></td></tr>
+                            <tr><td>Sejarah</td><td>74</td><td><span class="badge badge-warning">B</span></td><td>83</td><td><span class="badge badge-success">A</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-koko">
+            <div class="card-custom">
+                <h4>Pencapaian Kokurikulum</h4>
+                <div class="koko-item">
+                    <span class="badge badge-info koko-badge-margin">Sukan & Permainan</span>
+                    <h6 class="koko-title">Johan Merentas Desa MSSD</h6>
+                    <small class="text-muted">Peringkat Daerah</small>
+                </div>
+                <div class="koko-item">
+                    <span class="badge badge-info koko-badge-margin">Kelab & Persatuan</span>
+                    <h6 class="koko-title">Naib Pengerusi Kelab STEM</h6>
+                    <small class="text-muted">Peringkat Sekolah</small>
+                </div>
+                <div class="koko-item">
+                    <span class="badge badge-info koko-badge-margin">Badan Beruniform</span>
+                    <h6 class="koko-title">Kadet Remaja Sekolah (KRS)</h6>
+                    <small class="text-muted">Pangkat Koperal</small>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer><p>© 2026 Portal Rekod Prestasi Pelajar Sekolah Menengah. Ditubuhkan untuk Penilaian IMS566.</p></footer>
+</body>
+</html>
