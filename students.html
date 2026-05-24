@@ -30,43 +30,42 @@
 
 <div class="container">
     <div class="page-title">
-        <h2 class="fw-bold m-0" style="font-size: 28px;">My Student Profile</h2>
-        <p class="text-muted mt-1">View your official academic bio and registered core courses. Click on your class name to view your classmates.</p>
+        <h2>My Student Profile</h2>
+        <p class="text-muted">View your official academic bio and registered core courses. Click on your class name to view classmates.</p>
     </div>
 
-    <div id="main-profile-section">
-        
-        <div class="card-custom w-100 style-box-override" style="box-sizing: border-box;">
-            <div class="profile-flex-wrapper">
-                <div class="p-1 rounded-circle border border-primary border-3 avatar-container">
+    <div class="row style-row-override" style="flex-direction: column; gap: 32px;">
+        <div class="card-custom">
+            <div class="d-flex align-items-center gap-4 flex-wrap">
+                <div class="p-1 rounded-circle border border-primary border-3 avatar-container" style="background: var(--card-bg);">
                     <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Ahmad" alt="Avatar" class="avatar-img">
                 </div>
-                <div class="profile-info-block">
-                    <h3 class="fw-bold m-0 mb-1" style="font-size: 24px;">Ahmad Iqmal</h3>
+                <div>
+                    <h3 class="fw-bold m-0 mb-1 text-inherit" style="font-size: 24px;">Ahmad Iqmal</h3>
                     <span class="badge badge-success mb-3">Active Student</span>
                     
-                    <div class="profile-details-grid">
+                    <div class="d-flex gap-4 flex-wrap mt-2">
                         <div>
-                            <small class="text-muted d-block detail-label">CLASS NAME</small>
+                            <small class="text-muted d-block small" style="font-weight: 700; font-size: 11px;">CLASS NAME</small>
                             <strong onclick="toggleClassNameSection()" class="class-name-clickable" title="Click to view classmates">2 Amanah 👥</strong>
                         </div>
                         <div>
-                            <small class="text-muted d-block detail-label">INDEX NUMBER</small>
-                            <strong style="font-size: 15px;">SMK-2026-001</strong>
+                            <small class="text-muted d-block small" style="font-weight: 700; font-size: 11px;">INDEX NUMBER</small>
+                            <strong>SMK-2026-001</strong>
                         </div>
                         <div>
-                            <small class="text-muted d-block detail-label">HOMEROOM TEACHER</small>
-                            <strong style="font-size: 15px;">Puan Noraini Binti Ali</strong>
+                            <small class="text-muted d-block small" style="font-weight: 700; font-size: 11px;">HOMEROOM TEACHER</small>
+                            <strong>Puan Noraini Binti Ali</strong>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="card-custom w-100 style-box-override" style="box-sizing: border-box;">
-            <h4 class="fw-bold mt-0 mb-4">Registered Subject List (KSSM)</h4>
+        <div class="card-custom">
+            <h4 class="fw-bold mb-4">Registered Subject List (KSSM)</h4>
             <div style="overflow-x: auto;">
-                <table class="table-custom table-profile-override">
+                <table class="table-custom">
                     <thead>
                         <tr>
                             <th>Subject Code</th>
@@ -86,7 +85,7 @@
         </div>
     </div>
 
-    <div id="class-directory-section" style="display: none;">
+    <div id="class-directory-section" style="display: none;" class="card-custom">
         <h3 class="fw-bold mb-1" style="font-size: 22px;">Class Member Directory: 2 Amanah</h3>
         <p class="text-muted mb-4">List of student accounts registered under the same academic homeroom group.</p>
         
@@ -124,7 +123,7 @@
         </div>
         
         <div class="mt-4 text-end">
-            <button onclick="toggleClassNameSection()" class="badge badge-warning btn-hide-class">Hide Classmates ↑</button>
+            <button onclick="toggleClassNameSection()" class="badge badge-warning" style="border: none; cursor: pointer; padding: 10px 18px;">Hide Classmates ↑</button>
         </div>
     </div>
 </div>
