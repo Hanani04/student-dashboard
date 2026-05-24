@@ -1,5 +1,5 @@
 /* ==========================================================================
-   IMS566 INDIVIDUAL PROJECT - SYSTEM INTEGRATED INDUK STYLESHEET
+   IMS566 INDIVIDUAL PROJECT - MASTER INTEGRATED STYLESHEET (ENGLISH VERSION)
    ========================================================================== */
 
 :root {
@@ -45,6 +45,7 @@ body {
     transition: var(--transition);
 }
 
+/* NAVBAR & NAVIGATION */
 .navbar {
     background-color: var(--card-bg);
     border-bottom: 1px solid var(--card-border);
@@ -128,20 +129,7 @@ body {
     flex: 1;
 }
 
-.page-title {
-    margin-bottom: 30px;
-}
-
-.page-title h2 {
-    font-size: 28px;
-    font-weight: 700;
-    margin: 0 0 5px 0;
-}
-
-.text-muted {
-    color: var(--footer-text);
-}
-
+/* CARDS & UTILITIES FOR DASHBOARD / TASKS */
 .card-custom {
     background-color: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -152,35 +140,20 @@ body {
     transition: var(--transition);
 }
 
-/* GAYA KAD TERAPUNG (FLOATING CARD) UNTUK DASHBOARD ATTENDANCE */
 .card-floating {
     transform: translateY(-4px);
     box-shadow: 0 20px 35px rgba(2, 132, 199, 0.12);
     border: 1px solid rgba(2, 132, 199, 0.25);
 }
 
-.card-custom h4 {
-    margin: 0 0 20px 0;
-    font-size: 18px;
-    font-weight: 600;
-}
-
-/* SISTEM STRUKTUR KAD BERKEMBAR (TWIN CONTAINER GRID) - Halaman Tasks */
 .card-flex {
     display: flex;
     gap: 24px;
     align-items: flex-start;
 }
 
-.task-list-side {
-    flex: 1.8;
-    min-width: 320px;
-}
-
-.task-chart-side {
-    flex: 1.2;
-    min-width: 280px;
-}
+.task-list-side { flex: 1.8; min-width: 320px; }
+.task-chart-side { flex: 1.2; min-width: 280px; }
 
 .row {
     display: flex;
@@ -189,148 +162,163 @@ body {
     margin-bottom: 24px;
 }
 
-.col {
-    flex: 1;
-    min-width: 240px;
-}
+.col { flex: 1; min-width: 240px; }
+.col-table { flex: 2; min-width: 500px; }
 
-.col-table {
-    flex: 2;
-    min-width: 500px;
-}
-
-.col-koko {
-    flex: 1;
-    min-width: 300px;
-}
-
-.stat-number {
-    font-size: 34px;
-    font-weight: 700;
-    margin: 12px 0 5px 0;
-}
-
-.stat-blue { color: #0284c7; }
-.stat-green { color: #10b981; }
-
-.stat-desc {
-    font-size: 13px;
-    display: block;
-    margin-top: 4px;
-}
-
-/* Rangka Kerja Flex & Jarak Utiliti Ringkas */
+/* FLEXBOX & ALIGNMENT HELPERS */
 .d-flex { display: flex; }
 .align-items-center { align-items: center; }
 .justify-content-between { justify-content: space-between; }
 .flex-grow-1 { flex-grow: 1; }
-.gap-3 { gap: 1rem; }
-.p-3 { padding: 1rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-4 { gap: 1.5rem; }
 .mb-2 { margin-bottom: 8px; }
 .mb-4 { margin-bottom: 1.5rem; }
-.mt-2 { margin-top: 8px; }
-.d-block { display: block; }
-.rounded { border-radius: 12px; }
-.border { border: 1px solid var(--table-border); }
-.fw-bold { font-weight: 600; }
+.mt-4 { margin-top: 1.5rem; }
 .m-0 { margin: 0; }
 
-.progress-container {
-    background-color: var(--table-border);
-    border-radius: 10px;
-    height: 8px;
+/* ==========================================================================
+   TINDIH (OVERWRITE): SPECIAL DARK BLUE THEME FOR AHMAD IQMAL (STUDENTS.HTML)
+   ========================================================================== */
+.dark-portal-body {
+    background-color: #071120 !important;
+    color: #f1f5f9 !important;
+}
+
+.profile-card-master {
+    background-color: #111e31;
+    border-radius: 20px;
+    padding: 30px;
+    border-left: 4px solid #0091ff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.avatar-container {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #0091ff;
+    padding: 5px;
+    background-color: #0b1424;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.avatar-container img {
     width: 100%;
-    margin-top: 10px;
-    overflow: hidden;
-}
-
-.progress-bar {
-    background: linear-gradient(90deg, var(--primary), var(--accent));
     height: 100%;
-    border-radius: 10px;
-    transition: width 0.5s ease;
+    object-fit: contain;
 }
 
-.badge {
+.profile-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.badge-status-active {
+    background-color: #1e3a2f;
+    color: #4ade80;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 20px;
+}
+
+.profile-meta-grid {
+    display: flex;
+    gap: 40px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.meta-label {
+    display: block;
+    font-size: 11px;
+    color: #475569;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.meta-value {
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.meta-value-link {
+    font-size: 15px;
+    color: #0091ff;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px dashed #0091ff;
+    transition: all 0.2s ease;
+}
+
+.meta-value-link:hover {
+    color: #38bdf8;
+    border-bottom-color: #38bdf8;
+}
+
+.section-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.table-portal {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-portal th {
+    color: #94a3b8;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 16px;
+    border-bottom: 1px solid #1e293b;
+    text-align: left;
+}
+
+.table-portal td {
+    color: #cbd5e1;
+    font-size: 14px;
+    padding: 16px;
+    border-bottom: 1px solid #1e293b;
+}
+
+.badge-category {
+    background-color: #ffffff;
+    color: #0f172a;
+    padding: 6px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 20px;
     display: inline-block;
-    padding: 6px 12px;
+}
+
+.btn-hide-portal {
+    background-color: #e2e8f0;
+    color: #0f172a;
+    border: none;
+    padding: 6px 16px;
     font-size: 12px;
     font-weight: 600;
     border-radius: 8px;
+    cursor: pointer;
 }
 
-.badge-success { background-color: #dcfce7; color: #15803d; }
-.badge-warning { background-color: #fef9c3; color: #a16207; }
-.badge-info { background-color: #e0f2fe; color: #0369a1; }
-
-.table-custom {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-}
-
-.table-custom th {
-    background-color: var(--table-th-bg);
-    color: var(--table-th-text);
-    text-align: left;
-    padding: 14px 16px;
-    font-size: 14px;
-    font-weight: 600;
-    border-bottom: 2px solid var(--table-border);
-}
-
-.table-custom td {
-    padding: 14px 16px;
-    font-size: 14px;
-    border-bottom: 1px solid var(--table-border);
-    color: var(--text-color);
-}
-
-.table-custom tr:hover td {
-    background-color: var(--table-td-hover);
-}
-
-.card-countdown-banner {
-    background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(56, 189, 248, 0.05) 100%);
-    border: 1px solid rgba(2, 132, 199, 0.2);
-}
-
-.countdown-flex-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.countdown-title { margin: 0; color: var(--primary); font-weight: 700; }
-.countdown-subtitle { margin: 5px 0 0 0; font-size: 13px; }
-.countdown-timer-display { display: flex; gap: 15px; }
-
-.countdown-box {
-    background-color: var(--card-bg);
-    border: 1px solid var(--table-border);
-    padding: 10px 14px;
-    border-radius: 10px;
-    font-size: 20px;
-    font-weight: 700;
-    display: block;
+/* GLOBAL FOOTER & RESPONSIVENESS */
+footer {
     text-align: center;
-}
-
-.countdown-label {
-    display: block;
-    text-align: center;
-    font-size: 11px;
+    padding: 30px;
+    background: var(--footer-bg);
+    border-top: 1px solid var(--table-border);
     color: var(--footer-text);
-    margin-top: 4px;
-    text-transform: uppercase;
+    font-size: 13px;
+    margin-top: auto;
 }
-
-.koko-item { border-left: 3px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
-.koko-item:last-child { margin-bottom: 0; }
-.koko-badge-margin { margin-bottom: 6px; }
-.koko-title { margin: 4px 0; font-size: 15px; font-weight: 600; }
 
 .hamburger-toggle {
     display: none;
@@ -339,7 +327,6 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    padding: 8px;
 }
 
 .hamburger-toggle span {
@@ -348,11 +335,9 @@ body {
     height: 3px;
     background-color: var(--text-color);
     border-radius: 2px;
-    transition: var(--transition);
 }
 
 @media (max-width: 768px) {
-    .card-flex { flex-direction: column; }
     .hamburger-toggle { display: flex; }
     .nav-links {
         display: none;
@@ -362,19 +347,10 @@ body {
         top: 65px;
         left: 0;
         background-color: var(--card-bg);
-        border-bottom: 1px solid var(--table-border);
         padding: 20px;
-        box-shadow: 0 10px 15px -3px rgba(0,0,0,0.05);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
         gap: 10px;
     }
     .nav-links.open { display: flex; }
-    .row { flex-direction: column; }
+    .card-flex, .row { flex-direction: column; }
 }
-
-/* GAYA REKA BENTUK HALAMAN LOGIN & DAFTAR (ASAL & SELAMAT) */
-.login-body { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); height: 100vh; }
-.login-card { background: rgba(255, 255, 255, 0.95); border: none; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
-.login-card .form-control { border-radius: 12px; padding: 12px 16px; border: 1px solid #e2e8f0; background-color: #f8fafc; }
-.btn-login { border-radius: 12px; padding: 12px; font-weight: 600; background: linear-gradient(45deg, #0284c7, #38bdf8); border: none; }
-
-footer { text-align: center; padding: 30px; background: var(--footer-bg); border-top: 1px solid var(--table-border); color: var(--footer-text); font-size: 13px; margin-top: auto; transition: var(--transition); }
