@@ -30,8 +30,8 @@
 
 <div class="container">
     <div class="page-title">
-        <h2>Performance Summary</h2>
-        <p class="text-muted">Overall analysis of academic achievements, co-curricular records, and current task status.</p>
+        <h2>Overall Performance Summary</h2>
+        <p class="text-muted">Overall analysis of academic achievements, co-curricular records, and daily school attendance trend.</p>
     </div>
 
     <div class="card-custom card-countdown-banner">
@@ -49,7 +49,7 @@
         </div>
     </div>
 
-    <div class="row mb-4">
+    <div class="row">
         <div class="col card-custom">
             <p>Standardized Test 1</p>
             <div class="stat-number stat-blue">85%</div>
@@ -58,31 +58,35 @@
         
         <div class="col card-custom">
             <p>Mid-Year Examination</p>
-            <div class="stat-number stat-green-ppt">1A+, 3A, 1B+</div>
+            <div class="stat-number stat-green">1A+, 3A, 1B+</div>
             <small class="text-muted stat-desc">Grade Achievement Summary</small>
         </div>
         
-        <div class="col card-custom">
-            <p>Current Task Status</p>
-            <div class="stat-number stat-orange">75%</div>
-            <div class="progress-container"><div class="progress-bar" style="width: 75%;"></div></div>
-            <small class="text-muted stat-desc" style="margin-top: 10px;">15 out of 20 Tasks Completed</small>
+        <div class="col card-custom card-floating" style="min-width: 320px;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <p class="m-0" style="font-weight: 600;">Attendance Progress (This Month)</p>
+                <span class="badge badge-success">94.5% Present</span>
+            </div>
+            <div style="height: 100px; position: relative;">
+                <canvas id="attendanceChart"></canvas>
+            </div>
+            <small class="text-muted stat-desc" style="margin-top: 10px;">Class Attendance Analysis: 01 Aug - 16 Aug</small>
         </div>
     </div>
 
     <div class="row">
         <div class="col-table">
             <div class="card-custom">
-                <h4>Results by Subject</h4>
+                <h4>Results by Subject (KSSM Syllabus)</h4>
                 <div style="overflow-x: auto;">
                     <table class="table-custom">
                         <thead>
                             <tr>
-                                <th>Subject</th>
-                                <th>Test</th>
-                                <th>Grade</th>
-                                <th>Mid-Year Exam</th>
-                                <th>Grade</th>
+                                <th>Subject Title</th>
+                                <th>Test Score</th>
+                                <th>Test Grade</th>
+                                <th>Mid-Year Score</th>
+                                <th>Mid-Year Grade</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -103,7 +107,7 @@
                 <div class="koko-item">
                     <span class="badge badge-info koko-badge-margin">Sports & Games</span>
                     <h6 class="koko-title">MSSD Cross Country Champion</h6>
-                    <small class="text-muted">District Level</small>
+                    <small class="text-muted">District Peringkat Level</small>
                 </div>
                 <div class="koko-item">
                     <span class="badge badge-info koko-badge-margin">Clubs & Societies</span>
@@ -121,8 +125,10 @@
 </div>
 
 <footer>
-    <p><center><small>&copy; 2026 Nurul Hanani Binti Hairun'nisak . All Rights Reserved. <br>
-    This is not the official website of Student Portal This website was developed for the purpose of learning HTML & CSS only.<br>Best view: Microsoft Edge / Google Chrome<br>Last Update: May 24th, 2026</small></center></p>
+    <p><small>&copy; 2026 Nurul Hanani Binti Hairun'nisak . All Rights Reserved. <br>
+    High School Student Academic Performance & Analytics Dashboard. Built for IMS566 Evaluation.<br>
+    Best Viewed: Microsoft Edge / Google Chrome</small></p>
 </footer>
+
 </body>
 </html>
