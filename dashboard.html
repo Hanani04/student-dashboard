@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Utama Dashboard - Portal Pelajar</title>
+    <title>Main Dashboard - Student Portal</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/script.js"></script>
@@ -13,84 +13,84 @@
 
 <div class="navbar">
     <div class="nav-container">
-        <a href="dashboard.html" class="nav-brand">Portal Murid</a>
+        <a href="dashboard.html" class="nav-brand">Student Portal</a>
         <button class="hamburger-toggle" id="burgerIcon" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </button>
 
         <div class="nav-links" id="navLinks">
             <a href="dashboard.html" class="nav-item active-link">Dashboard</a>
-            <a href="tasks.html" class="nav-item">Tugasan</a>
-            <a href="students.html" class="nav-item">Profil & Kelas</a>
+            <a href="tasks.html" class="nav-item">Tasks</a>
+            <a href="students.html" class="nav-item">Profile & Class</a>
             <button id="themeBtn" class="theme-toggle-btn" onclick="toggleTheme()">🌙</button>
-            <a href="#" onclick="logout()" class="nav-item logout-btn">Log Keluar</a>
+            <a href="#" onclick="logout()" class="nav-item logout-btn">Log Out</a>
         </div>
     </div>
 </div>
 
 <div class="container">
     <div class="page-title">
-        <h2>Ringkasan Prestasi</h2>
-        <p class="text-muted">Analisis keseluruhan pencapaian akademik, kokurikulum dan status tugasan semasa.</p>
+        <h2>Performance Summary</h2>
+        <p class="text-muted">Overall analysis of academic achievements, co-curricular records, and current task status.</p>
     </div>
 
     <div class="card-custom card-countdown-banner">
         <div class="countdown-flex-wrapper">
             <div>
-                <h4 class="countdown-title">⏳ COUNTDOWN PEPERIKSAAN AKHIR TAHUN</h4>
-                <p class="countdown-subtitle">Tarikh Mula: 15 Oktober 2026</p>
+                <h4 class="countdown-title">⏳ YEAR-END EXAMINATION COUNTDOWN</h4>
+                <p class="countdown-subtitle">Start Date: 15 October 2026</p>
             </div>
             <div id="exam-countdown" class="countdown-timer-display">
-                <div><span id="cd-days" class="countdown-box">00</span><small class="countdown-label">Hari</small></div>
-                <div><span id="cd-hours" class="countdown-box">00</span><small class="countdown-label">Jam</small></div>
-                <div><span id="cd-minutes" class="countdown-box">00</span><small class="countdown-label">Minit</small></div>
-                <div><span id="cd-seconds" class="countdown-box">00</span><small class="countdown-label">Saat</small></div>
+                <div><span id="cd-days" class="countdown-box">00</span><small class="countdown-label">Days</small></div>
+                <div><span id="cd-hours" class="countdown-box">00</span><small class="countdown-label">Hours</small></div>
+                <div><span id="cd-minutes" class="countdown-box">00</span><small class="countdown-label">Minutes</small></div>
+                <div><span id="cd-seconds" class="countdown-box">00</span><small class="countdown-label">Seconds</small></div>
             </div>
         </div>
     </div>
 
     <div class="row mb-4">
         <div class="col card-custom">
-            <p>Ujian Selaras 1</p>
+            <p>Standardized Test 1</p>
             <div class="stat-number stat-blue">85%</div>
-            <small class="text-muted">Purata Markah Keseluruhan</small>
+            <small class="text-muted">Overall Average Mark</small>
         </div>
         
         <div class="col card-custom">
-            <p>Peperiksaan Pertengahan Tahun</p>
+            <p>Mid-Year Examination</p>
             <div class="stat-number stat-green-ppt">1A+, 3A, 1B+</div>
-            <small class="text-muted stat-desc">Ringkasan Pencapaian Gred</small>
+            <small class="text-muted stat-desc">Grade Achievement Summary</small>
         </div>
         
         <div class="col card-custom">
-            <p>Status Tugasan Semasa</p>
+            <p>Current Task Status</p>
             <div class="stat-number stat-orange">75%</div>
             <div class="progress-container"><div class="progress-bar" style="width: 75%;"></div></div>
-            <small class="text-muted mt-2 d-block">15 daripada 20 Tugasan Selesai</small>
+            <small class="text-muted mt-2 d-block">15 out of 20 Tasks Completed</small>
         </div>
     </div>
 
     <div class="row">
         <div class="col-table">
             <div class="card-custom">
-                <h4>Keputusan Mengikut Subjek</h4>
+                <h4>Results by Subject</h4>
                 <div style="overflow-x: auto;">
                     <table class="table-custom table-dashboard-override">
                         <thead>
                             <tr>
-                                <th>Subjek</th>
+                                <th>Subject</th>
                                 <th>Test</th>
-                                <th>Gred</th>
-                                <th>PPT</th>
-                                <th>Gred</th>
+                                <th>Grade</th>
+                                <th>Mid-Year Exam</th>
+                                <th>Grade</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>Bahasa Melayu</td><td>88</td><td><span class="badge badge-success">A</span></td><td>92</td><td><span class="badge badge-success">A+</span></td></tr>
-                            <tr><td>Bahasa Inggeris</td><td>82</td><td><span class="badge badge-success">A</span></td><td>85</td><td><span class="badge badge-success">A</span></td></tr>
-                            <tr><td>Matematik</td><td>78</td><td><span class="badge badge-warning">B+</span></td><td>80</td><td><span class="badge badge-success">A</span></td></tr>
-                            <tr><td>Sains</td><td>70</td><td><span class="badge badge-warning">B</span></td><td>76</td><td><span class="badge badge-warning">B+</span></td></tr>
-                            <tr><td>Sejarah</td><td>74</td><td><span class="badge badge-warning">B</span></td><td>83</td><td><span class="badge badge-success">A</span></td></tr>
+                            <tr><td>Malay Language</td><td>88</td><td><span class="badge badge-success">A</span></td><td>92</td><td><span class="badge badge-success">A+</span></td></tr>
+                            <tr><td>English Language</td><td>82</td><td><span class="badge badge-success">A</span></td><td>85</td><td><span class="badge badge-success">A</span></td></tr>
+                            <tr><td>Mathematics</td><td>78</td><td><span class="badge badge-warning">B+</span></td><td>80</td><td><span class="badge badge-success">A</span></td></tr>
+                            <tr><td>Science</td><td>70</td><td><span class="badge badge-warning">B</span></td><td>76</td><td><span class="badge badge-warning">B+</span></td></tr>
+                            <tr><td>History</td><td>74</td><td><span class="badge badge-warning">B</span></td><td>83</td><td><span class="badge badge-success">A</span></td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -99,27 +99,30 @@
 
         <div class="col-koko">
             <div class="card-custom">
-                <h4>Pencapaian Kokurikulum</h4>
+                <h4>Co-Curricular Achievements</h4>
                 <div class="koko-item">
-                    <span class="badge badge-info koko-badge-margin">Sukan & Permainan</span>
-                    <h6 class="koko-title">Johan Merentas Desa MSSD</h6>
-                    <small class="text-muted">Peringkat Daerah</small>
+                    <span class="badge badge-info koko-badge-margin">Sports & Games</span>
+                    <h6 class="koko-title">MSSD Cross Country Champion</h6>
+                    <small class="text-muted">District Level</small>
                 </div>
                 <div class="koko-item">
-                    <span class="badge badge-info koko-badge-margin">Kelab & Persatuan</span>
-                    <h6 class="koko-title">Naib Pengerusi Kelab STEM</h6>
-                    <small class="text-muted">Peringkat Sekolah</small>
+                    <span class="badge badge-info koko-badge-margin">Clubs & Societies</span>
+                    <h6 class="koko-title">STEM Club Vice Chairman</h6>
+                    <small class="text-muted">School Level</small>
                 </div>
                 <div class="koko-item">
-                    <span class="badge badge-info koko-badge-margin">Badan Beruniform</span>
+                    <span class="badge badge-info koko-badge-margin">Uniformed Bodies</span>
                     <h6 class="koko-title">Kadet Remaja Sekolah (KRS)</h6>
-                    <small class="text-muted">Pangkat Koperal</small>
+                    <small class="text-muted">Corporal Rank</small>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<footer><p>© 2026 Portal Rekod Prestasi Pelajar Sekolah Menengah. Ditubuhkan untuk Penilaian IMS566.</p></footer>
+<footer>
+    <p><center><small>&copy; 2026 Nurul Hanani Binti Hairun'nisak . All Rights Reserved. <br>
+    This is not the official website of Student Portal This website was developed for the purpose of learning HTML & CSS only.<br>Best view: Microsoft Edge / Google Chrome<br>Last Update: May 24th, 2026</small></center></p>
+</footer>
 </body>
 </html>
