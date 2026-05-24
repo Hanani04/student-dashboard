@@ -1,5 +1,5 @@
 // ==========================================================================
-// IMS566 CONTROLLER CODE - SCHOOL PORTAL LOGIC WITH INTUITIVE ICON TOGGLER
+// IMS566 CONTROLLER CODE - ENGLISH COMPLIANT PORTAL LOGIC
 // ==========================================================================
 
 function login() {
@@ -44,7 +44,6 @@ function toggleMenu() {
     }
 }
 
-// THEME TOGGLER LOGIC
 function toggleTheme() {
     const currentTheme = document.documentElement.getAttribute("data-theme");
     const themeBtn = document.getElementById("themeBtn");
@@ -109,9 +108,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-// ==========================================================================
-// FUNGSI INTERAKTIF UNTUK SELEKSI NAMA KELAS PADA students.html
-// ==========================================================================
 function toggleClassNameSection() {
     const classBox = document.getElementById("class-directory-section");
     if (!classBox) return;
