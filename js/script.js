@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ==========================================================================
-// FUNGSI KHAS UNTUK HALAMAN PROFILE & DIREKTORI AHLI KELAS
+// FUNGSI INTERAKTIF UNTUK SELEKSI NAMA KELAS PADA students.html
 // ==========================================================================
 function toggleClassNameSection() {
     const classBox = document.getElementById("class-directory-section");
