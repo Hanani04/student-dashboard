@@ -1,8 +1,8 @@
 // ==========================================================================
-// IMS566 CONTROLLER CODE - INTEGRATED PORTAL LOGIC (ALL FEATURES PRESERVED)
+// IMS566 MASTER CONTROLLER CODE - INTEGRATED PORTAL LOGIC (ALL VIEWS)
 // ==========================================================================
 
-// ORIGINAL LOGIN FUNCTION (PRESERVED & PROTECTED)
+// 1. LOGIK SISTEM DAFTAR & MASUK (PRESERVED)
 function login() {
     const usernameInput = document.getElementById("username").value.trim();
     const passwordInput = document.getElementById("password").value;
@@ -36,6 +36,7 @@ function logout() {
     window.location.href = "index.html";   
 }
 
+// 2. INTERAKSI MENU & TEMA MASA-NYATA
 function toggleMenu() {
     const navLinks = document.getElementById("navLinks");
     const burgerIcon = document.getElementById("burgerIcon");
@@ -60,18 +61,19 @@ function toggleTheme() {
     }
 }
 
-// ORIGINAL PROFILE TOGGLE FUNCTION (RESTORED TO FIX BUTTONS)
-function toggleProfileSection() {
-    const profileBox = document.getElementById("interactive-profile-section");
-    if (profileBox) {
-        if (profileBox.style.display === "none" || profileBox.style.display === "") {
-            profileBox.style.display = "block";
-        } else {
-            profileBox.style.display = "none";
-        }
+// 3. LOGIK PAPARAN PROFIL BARU: PAPAR/SOROK AHLI KELAS LAIN
+function toggleClassmates() {
+    const classmatesBox = document.getElementById("classmates-section");
+    if (!classmatesBox) return;
+    
+    if (classmatesBox.style.display === "none" || classmatesBox.style.display === "") {
+        classmatesBox.style.display = "block";
+    } else {
+        classmatesBox.style.display = "none";
     }
 }
 
+// 4. PEMASA PEPERIKSAAN AKHIR TAHUN
 function startExamCountdown() {
     const targetDate = new Date("October 15, 2026 08:00:00").getTime();
 
@@ -103,8 +105,9 @@ function startExamCountdown() {
     }, 1000);
 }
 
-// Global initialization
+// 5. PENYEDIAAN CARTA (GLOBAL DOM INITIALIZATION)
 document.addEventListener("DOMContentLoaded", function () {
+    // Pengurusan Tema
     const currentTheme = localStorage.getItem("theme") || "light";
     document.documentElement.setAttribute("data-theme", currentTheme);
     const themeBtn = document.getElementById("themeBtn");
@@ -112,11 +115,12 @@ document.addEventListener("DOMContentLoaded", function () {
         themeBtn.innerHTML = (currentTheme === "dark") ? "☀️" : "🌙";
     }
 
+    // Aktifkan Countdown jika elemen wujud
     if (document.getElementById("cd-days")) {
         startExamCountdown();
     }
 
-    // Attendance Line Chart (Dashboard)
+    // Dashboard: Attendance Floating Line Chart
     const attendanceCtx = document.getElementById('attendanceChart');
     if (attendanceCtx) {
         new Chart(attendanceCtx.getContext('2d'), {
@@ -146,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Task Progress Bar Chart (Tasks View)
+    // Tasks: Weekly Homework Stacked Bar Chart
     const taskProgressCtx = document.getElementById('taskProgressChart');
     if (taskProgressCtx) {
         new Chart(taskProgressCtx.getContext('2d'), {
