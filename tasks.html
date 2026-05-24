@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Peti Tugasan - Portal Pelajar</title>
+    <title>Task Inbox - Student Portal</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
     <script>checkAuth();</script>
@@ -12,49 +12,52 @@
 
 <div class="navbar">
     <div class="nav-container">
-        <a href="dashboard.html" class="nav-brand">Portal Murid</a>
+        <a href="dashboard.html" class="nav-brand">Student Portal</a>
         <button class="hamburger-toggle" id="burgerIcon" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </button>
 
         <div class="nav-links" id="navLinks">
             <a href="dashboard.html" class="nav-item">Dashboard</a>
-            <a href="tasks.html" class="nav-item active-link">Tugasan</a>
-            <a href="students.html" class="nav-item">Profil & Kelas</a>
+            <a href="tasks.html" class="nav-item active-link">Tasks</a>
+            <a href="students.html" class="nav-item">Profile & Class</a>
             <button id="themeBtn" class="theme-toggle-btn" onclick="toggleTheme()">🌙</button>
-            <a href="#" onclick="logout()" class="nav-item logout-btn">Log Keluar</a>
+            <a href="#" onclick="logout()" class="nav-item logout-btn">Log Out</a>
         </div>
     </div>
 </div>
 
 <div class="container">
     <div class="page-title">
-        <h2 style="font-size: 28px; margin: 0;">Senarai Tugasan Sekolah</h2>
-        <p class="text-muted" style="margin-top: 5px;">Pantau kerja rumah yang perlu disiapkan mengikut subjek masing-masing.</p>
+        <h2 style="font-size: 28px; margin: 0;">School Task List</h2>
+        <p class="text-muted" style="margin-top: 5px;">Monitor homework that needs to be completed according to respective subjects.</p>
     </div>
 
     <div class="card-custom mb-4" style="max-width: 500px;">
-        <p>Kadar Penyelesaian Kerja Rumah</p>
-        <div class="stat-number" style="color: #10b981;">75% Selesai</div>
+        <p>Homework Completion Rate</p>
+        <div class="stat-number" style="color: #10b981;">75% Completed</div>
         <div class="progress-container"><div class="progress-bar" style="width: 75%;"></div></div>
-        <small class="text-muted mt-2 d-block">3 Belum Siap | 9 Telah Dihantar</small>
+        <small class="text-muted mt-2 d-block">3 Incomplete | 9 Submitted</small>
     </div>
 
     <div style="overflow-x: auto;">
         <table class="table-custom">
             <thead>
-                <tr><th>Nama Tugasan & Kerja Rumah</th><th>Subjek</th><th>Tarikh Hantar</th><th>Status Tindakan</th></tr>
+                <tr><th>Task Name & Homework</th><th>Subject</th><th>Submission Date</th><th>Action Status</th></tr>
             </thead>
             <tbody>
-                <tr><td>Latihan Buku Kerja Bab 4 (Poligon)</td><td><strong>Matematik</strong></td><td>25 Mei 2026</td><td><span class="badge badge-warning">Kena Siapkan</span></td></tr>
-                <tr><td>Amali Sains: Pembiasan Cahaya</td><td><strong>Sains</strong></td><td>28 Mei 2026</td><td><span class="badge badge-warning">Kena Siapkan</span></td></tr>
-                <tr><td>Karangan Pendek: Amalan Gaya Hidup Sihat</td><td><strong>Bahasa Melayu</strong></td><td>Sudah Dihantar</td><td><span class="badge badge-success">Dah Siap</span></td></tr>
-                <tr><td>English Grammar Workbook Exercise 2</td><td><strong>Bahasa Inggeris</strong></td><td>Sudah Dihantar</td><td><span class="badge badge-success">Dah Siap</span></td></tr>
+                <tr><td>Workbook Exercises Chapter 4 (Polygons)</td><td><strong>Mathematics</strong></td><td>25 May 2026</td><td><span class="badge badge-warning">Pending</span></td></tr>
+                <tr><td>Science Practical: Light Refraction</td><td><strong>Science</strong></td><td>28 May 2026</td><td><span class="badge badge-warning">Pending</span></td></tr>
+                <tr><td>Short Essay: Healthy Lifestyle Practices</td><td><strong>Malay Language</strong></td><td>Submitted</td><td><span class="badge badge-success">Completed</span></td></tr>
+                <tr><td>English Grammar Workbook Exercise 2</td><td><strong>English Language</strong></td><td>Submitted</td><td><span class="badge badge-success">Completed</span></td></tr>
             </tbody>
         </table>
     </div>
 </div>
 
-<footer><p>© 2026 Portal Rekod Prestasi Pelajar Sekolah Menengah. Ditubuhkan untuk Penilaian IMS566.</p></footer>
+<footer>
+    <p><center><small>&copy; 2026 Nurul Hanani Binti Hairun'nisak . All Rights Reserved. <br>
+    This is not the official website of Student Portal This website was developed for the purpose of learning HTML & CSS only.<br>Best view: Microsoft Edge / Google Chrome<br>Last Update: May 24th, 2026</small></center></p>
+</footer>
 </body>
 </html>
