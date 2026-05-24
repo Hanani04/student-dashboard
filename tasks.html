@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Inbox - Student Portal</title>
+    <title>Task Box - Student Portal</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/script.js"></script>
     <script>checkAuth();</script>
 </head>
@@ -29,28 +30,85 @@
 
 <div class="container">
     <div class="page-title">
-        <h2>School Task List</h2>
-        <p class="text-muted">Monitor homework that needs to be completed according to respective subjects.</p>
+        <h2>Weekly Homework & Tasks Box</h2>
+        <p class="text-muted">Monitor and track submission statuses of high school assignments across active courses.</p>
     </div>
 
-    <div class="card-custom mb-4" style="max-width: 500px;">
-        <p>Homework Completion Rate</p>
-        <div class="stat-number" style="color: #10b981;">75% Completed</div>
-        <div class="progress-container"><div class="progress-bar" style="width: 75%;"></div></div>
-        <small class="text-muted stat-desc" style="margin-top:10px;">3 Incomplete | 9 Submitted</small>
+    <div class="card-flex mb-4">
+        
+        <div class="task-chart-side">
+            <div class="card-custom">
+                <h4>Task Progress Overview</h4>
+                <div style="position: relative; width: 100%;">
+                    <canvas id="taskProgressChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="task-list-side">
+            <div class="card-custom">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="m-0">Active Homework Checklist</h4>
+                    <span class="badge badge-success">3/5 Completed ✔</span>
+                </div>
+
+                <div class="assignment-item d-flex align-items-center gap-3 p-3 mb-2 rounded border" style="background: var(--table-th-bg);">
+                    <input type="checkbox" style="width: 18px; height: 18px; pointer-events: none;">
+                    <div class="flex-grow-1">
+                        <p class="fw-bold m-0" style="font-size: 14px;">Mathematics: Workbook Chapter 4 (Polygons)</p>
+                        <small class="text-muted">Due Date: 25 May 2026</small>
+                    </div>
+                    <span class="badge badge-warning">Action Required</span>
+                </div>
+
+                <div class="assignment-item d-flex align-items-center gap-3 p-3 mb-2 rounded border" style="background: var(--table-th-bg);">
+                    <input type="checkbox" style="width: 18px; height: 18px; pointer-events: none;">
+                    <div class="flex-grow-1">
+                        <p class="fw-bold m-0" style="font-size: 14px;">Science: Light Refraction Practical Lab Report</p>
+                        <small class="text-muted">Due Date: 28 May 2026</small>
+                    </div>
+                    <span class="badge badge-warning">Action Required</span>
+                </div>
+
+                <div class="assignment-item d-flex align-items-center gap-3 p-3 mb-2 rounded border" style="background: rgba(16, 185, 129, 0.05);">
+                    <input type="checkbox" checked style="width: 18px; height: 18px; pointer-events: none;">
+                    <div class="flex-grow-1">
+                        <p class="fw-bold m-0" style="font-size: 14px; text-decoration: line-through;" class="text-muted">Malay Language: Healthy Lifestyle Essay</p>
+                        <small class="text-muted">Status: Successfully Submitted</small>
+                    </div>
+                    <span class="badge badge-success">Done</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="card-custom">
+        <h4>Core Homework Tracker & Submission Status</h4>
+        
+        <div class="mb-4">
+            <p class="m-0 fw-bold">Current Homework Tracker Status</p>
+            <div class="stat-number style-override" style="color: #10b981;">75% Completed</div>
+            <div class="progress-container"><div class="progress-bar" style="width: 75%;"></div></div>
+            <small class="text-muted mt-2 d-block">3 Pending | 9 Submitted and Evaluated</small>
+        </div>
+
         <div style="overflow-x: auto;">
             <table class="table-custom">
                 <thead>
-                    <tr><th>Task Name & Homework</th><th>Subject</th><th>Submission Date</th><th>Action Status</th></tr>
+                    <tr>
+                        <th>Homework Assignment Title</th>
+                        <th>Subject Course</th>
+                        <th>Submission Deadline</th>
+                        <th>Action Status</th>
+                    </tr>
                 </thead>
                 <tbody>
-                    <tr><td>Workbook Exercises Chapter 4 (Polygons)</td><td><strong>Mathematics</strong></td><td>25 May 2026</td><td><span class="badge badge-warning">Pending</span></td></tr>
-                    <tr><td>Science Practical: Light Refraction</td><td><strong>Science</strong></td><td>28 May 2026</td><td><span class="badge badge-warning">Pending</span></td></tr>
-                    <tr><td>Short Essay: Healthy Lifestyle Practices</td><td><strong>Malay Language</strong></td><td>Submitted</td><td><span class="badge badge-success">Completed</span></td></tr>
-                    <tr><td>English Grammar Workbook Exercise 2</td><td><strong>English Language</strong></td><td>Submitted</td><td><span class="badge badge-success">Completed</span></td></tr>
+                    <tr><td>Workbook Exercises Chapter 4 (Polygons)</td><td><strong>Mathematics</strong></td><td>25 May 2026</td><td><span class="badge badge-warning">Action Required</span></td></tr>
+                    <tr><td>Science Practical: Light Refraction Report</td><td><strong>Science</strong></td><td>28 May 2026</td><td><span class="badge badge-warning">Action Required</span></td></tr>
+                    <tr><td>Short Essay: Healthy Lifestyle Habits</td><td><strong>Malay Language</strong></td><td>Submitted</td><td><span class="badge badge-success">Done</span></td></tr>
+                    <tr><td>English Grammar Workbook Exercise 2</td><td><strong>English Language</strong></td><td>Submitted</td><td><span class="badge badge-success">Done</span></td></tr>
+                    <tr><td>History Chapter 3 Timeline Summary Notes</td><td><strong>History</strong></td><td>Submitted</td><td><span class="badge badge-success">Done</span></td></tr>
                 </tbody>
             </table>
         </div>
@@ -58,8 +116,10 @@
 </div>
 
 <footer>
-    <p><center><small>&copy; 2026 Nurul Hanani Binti Hairun'nisak . All Rights Reserved. <br>
-    This is not the official website of Student Portal This website was developed for the purpose of learning HTML & CSS only.<br>Best view: Microsoft Edge / Google Chrome<br>Last Update: May 24th, 2026</small></center></p>
+    <p><small>&copy; 2026 Nurul Hanani Binti Hairun'nisak . All Rights Reserved. <br>
+    High School Student Academic Performance & Analytics Dashboard. Built for IMS566 Evaluation.<br>
+    Best Viewed: Microsoft Edge / Google Chrome</small></p>
 </footer>
+
 </body>
 </html>
