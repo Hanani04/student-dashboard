@@ -2,26 +2,36 @@
 // IMS566 CONTROLLER CODE - HIGH SCHOOL DASHBOARD PLATFORM LOGIC (ENGLISH)
 // ==========================================================================
 
-// ORIGINAL LOGIN FUNCTION (PRESERVED & UNTOUCHED)
+// RE-ENGINEERED LOGIN FUNCTION (Safeguarded against breaking buttons)
 function login() {
-    const usernameInput = document.getElementById("username").value.trim();
-    const passwordInput = document.getElementById("password").value;
+    const usernameInput = document.getElementById("username") ? document.getElementById("username").value.trim() : "";
+    const passwordInput = document.getElementById("password") ? document.getElementById("password").value : "";
+    
+    // Safely look for either id="error" or any general alert wrapper
     const errorMsg = document.getElementById("error");
 
     const validUsername = "student123";
     const validPassword = "12345";
 
     if (usernameInput === "" || passwordInput === "") {
-        errorMsg.textContent = "Sila isi semua ruangan.";
+        if (errorMsg) {
+            errorMsg.textContent = "Please fill in all fields.";
+        } else {
+            alert("Please fill in all fields.");
+        }
         return;
     }
 
     if (usernameInput === validUsername && passwordInput === validPassword) {
-        errorMsg.textContent = "";
+        if (errorMsg) errorMsg.textContent = "";
         localStorage.setItem("isLoggedIn", "true"); 
         window.location.href = "dashboard.html"; 
     } else {
-        errorMsg.textContent = "ID atau Kata Laluan Salah! Sila cuba lagi.";
+        if (errorMsg) {
+            errorMsg.textContent = "Wrong ID or Password! Please try again.";
+        } else {
+            alert("Wrong ID or Password! Please try again.");
+        }
     }
 }
 
