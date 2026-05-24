@@ -1,37 +1,27 @@
 // ==========================================================================
-// IMS566 CONTROLLER CODE - HIGH SCHOOL DASHBOARD PLATFORM LOGIC (ENGLISH)
+// IMS566 CONTROLLER CODE - INTEGRATED PORTAL LOGIC (ALL FEATURES PRESERVED)
 // ==========================================================================
 
-// RE-ENGINEERED LOGIN FUNCTION (Safeguarded against breaking buttons)
+// ORIGINAL LOGIN FUNCTION (PRESERVED & PROTECTED)
 function login() {
-    const usernameInput = document.getElementById("username") ? document.getElementById("username").value.trim() : "";
-    const passwordInput = document.getElementById("password") ? document.getElementById("password").value : "";
-    
-    // Safely look for either id="error" or any general alert wrapper
+    const usernameInput = document.getElementById("username").value.trim();
+    const passwordInput = document.getElementById("password").value;
     const errorMsg = document.getElementById("error");
 
     const validUsername = "student123";
     const validPassword = "12345";
 
     if (usernameInput === "" || passwordInput === "") {
-        if (errorMsg) {
-            errorMsg.textContent = "Please fill in all fields.";
-        } else {
-            alert("Please fill in all fields.");
-        }
+        errorMsg.textContent = "Sila isi semua ruangan.";
         return;
     }
 
     if (usernameInput === validUsername && passwordInput === validPassword) {
-        if (errorMsg) errorMsg.textContent = "";
+        errorMsg.textContent = "";
         localStorage.setItem("isLoggedIn", "true"); 
         window.location.href = "dashboard.html"; 
     } else {
-        if (errorMsg) {
-            errorMsg.textContent = "Wrong ID or Password! Please try again.";
-        } else {
-            alert("Wrong ID or Password! Please try again.");
-        }
+        errorMsg.textContent = "ID atau Kata Laluan Salah! Sila cuba lagi.";
     }
 }
 
@@ -70,6 +60,7 @@ function toggleTheme() {
     }
 }
 
+// ORIGINAL PROFILE TOGGLE FUNCTION (RESTORED TO FIX BUTTONS)
 function toggleProfileSection() {
     const profileBox = document.getElementById("interactive-profile-section");
     if (profileBox) {
@@ -112,9 +103,8 @@ function startExamCountdown() {
     }, 1000);
 }
 
-// Global DOM Content Loaded Handler for Multi-charts mapping
+// Global initialization
 document.addEventListener("DOMContentLoaded", function () {
-    // Sync Selected App Theme Settings
     const currentTheme = localStorage.getItem("theme") || "light";
     document.documentElement.setAttribute("data-theme", currentTheme);
     const themeBtn = document.getElementById("themeBtn");
@@ -122,12 +112,11 @@ document.addEventListener("DOMContentLoaded", function () {
         themeBtn.innerHTML = (currentTheme === "dark") ? "☀️" : "🌙";
     }
 
-    // Trigger Countdown Timer
     if (document.getElementById("cd-days")) {
         startExamCountdown();
     }
 
-    // High Fidelity Attendance Progress Line Chart initialization
+    // Attendance Line Chart (Dashboard)
     const attendanceCtx = document.getElementById('attendanceChart');
     if (attendanceCtx) {
         new Chart(attendanceCtx.getContext('2d'), {
@@ -157,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Task Progress Bar Chart Setup
+    // Task Progress Bar Chart (Tasks View)
     const taskProgressCtx = document.getElementById('taskProgressChart');
     if (taskProgressCtx) {
         new Chart(taskProgressCtx.getContext('2d'), {
