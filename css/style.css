@@ -20,7 +20,7 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme=\"dark\"] {
+[data-theme="dark"] {
     --bg: #0f172a;
     --text-color: #f1f5f9;
     --card-bg: #1e293b;
@@ -211,7 +211,7 @@ footer { text-align: center; padding: 30px; background: var(--footer-bg); border
 }
 
 /* ==========================================================================
-   TAMBAHAN UNTUK HALAMAN STUDENT PROFILE & CLASS DIRECTORY
+   TAMBAHAN GAYA UNTUK PORTAL PROFIL & DIREKTORI KELAS BARU
    ========================================================================== */
 .class-name-clickable {
     font-size: 15px; 
