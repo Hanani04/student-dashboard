@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Direktori Kelas - Portal Pelajar</title>
+    <title>Class Directory - Student Portal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
@@ -13,35 +13,35 @@
 
 <div class="navbar">
     <div class="nav-container">
-        <a href="dashboard.html" class="nav-brand">Portal Murid</a>
+        <a href="dashboard.html" class="nav-brand">Student Portal</a>
         <button class="hamburger-toggle" id="burgerIcon" onclick="toggleMenu()">
             <span></span><span></span><span></span>
         </button>
 
         <div class="nav-links" id="navLinks">
             <a href="dashboard.html" class="nav-item">Dashboard</a>
-            <a href="tasks.html" class="nav-item">Tugasan</a>
-            <a href="students.html" class="nav-item active-link">Profil & Kelas</a>
+            <a href="tasks.html" class="nav-item">Tasks</a>
+            <a href="students.html" class="nav-item active-link">Profile & Class</a>
             <button id="themeBtn" class="theme-toggle-btn" onclick="toggleTheme()">🌙</button>
-            <a href="#" onclick="logout()" class="nav-item logout-btn">Log Keluar</a>
+            <a href="#" onclick="logout()" class="nav-item logout-btn">Log Out</a>
         </div>
     </div>
 </div>
 
 <div class="container">
     <div class="page-title">
-        <h2 style="font-size: 28px; margin: 0;">Direktori Ahli Kelas: 2 Amanah</h2>
-        <p class="text-muted" style="margin-top: 5px;">Klik butang Lihat Profil pada mana-mana nama murid untuk melihat biodata dan subjek diambil.</p>
+        <h2 style="font-size: 28px; margin: 0;">Class Member Directory: 2 Amanah</h2>
+        <p class="text-muted" style="margin-top: 5px;">Click the View Profile button next to any student's name to view their bio and registered subjects.</p>
     </div>
 
     <div style="overflow-x: auto; margin-bottom: 50px;">
         <table class="table-custom">
             <thead>
                 <tr>
-                    <th>No. Angka Giliran</th>
-                    <th>Nama Kawan Sekelas</th>
-                    <th>Nama Kelas</th>
-                    <th>Tindakan Sistem</th>
+                    <th>Index Number</th>
+                    <th>Classmate Name</th>
+                    <th>Class Name</th>
+                    <th>System Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -49,19 +49,19 @@
                     <td>SMK-2026-001</td>
                     <td><strong>Ahmad Iqmal</strong></td>
                     <td>2 Amanah</td>
-                    <td><button onclick="toggleProfileSection()" class="badge badge-success" style="border: none; cursor: pointer;">Lihat Profil</button></td>
+                    <td><button onclick="toggleProfileSection()" class="badge badge-success" style="border: none; cursor: pointer;">View Profile</button></td>
                 </tr>
                 <tr>
                     <td>SMK-2026-002</td>
                     <td><strong>Muhammad Faiz</strong></td>
                     <td>2 Amanah</td>
-                    <td><span class="badge badge-warning" style="opacity: 0.6;">Profil Dikunci</span></td>
+                    <td><span class="badge badge-warning" style="opacity: 0.6;">Profile Locked</span></td>
                 </tr>
                 <tr>
                     <td>SMK-2026-003</td>
                     <td><strong>Nurul Ain</strong></td>
                     <td>2 Amanah</td>
-                    <td><span class="badge badge-warning" style="opacity: 0.6;">Profil Dikunci</span></td>
+                    <td><span class="badge badge-warning" style="opacity: 0.6;">Profile Locked</span></td>
                 </tr>
             </tbody>
         </table>
@@ -77,19 +77,19 @@
                     </div>
                     <div style="flex: 1; min-width: 200px;">
                         <h3 style="margin: 0 0 5px 0; font-weight: 700; font-size: 24px;">Ahmad Iqmal</h3>
-                        <span class="badge badge-success" style="margin-bottom: 15px;">Murid Aktif</span>
+                        <span class="badge badge-success" style="margin-bottom: 15px;">Active Student</span>
                         
                         <div style="display: flex; gap: 40px; flex-wrap: wrap; margin-top: 5px;">
                             <div>
-                                <small class="text-muted d-block" style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">NAMA KELAS</small>
+                                <small class="text-muted d-block" style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">CLASS NAME</small>
                                 <strong style="font-size: 15px; color: #0284c7;">2 Amanah</strong>
                             </div>
                             <div>
-                                <small class="text-muted d-block" style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">ANGKA GILIRAN</small>
+                                <small class="text-muted d-block" style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">INDEX NUMBER</small>
                                 <strong style="font-size: 15px;">SMK-2026-001</strong>
                             </div>
                             <div>
-                                <small class="text-muted d-block" style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">GURU KELAS</small>
+                                <small class="text-muted d-block" style="font-size: 11px; font-weight: 700; letter-spacing: 0.5px;">HOMEROOM TEACHER</small>
                                 <strong style="font-size: 15px;">Puan Noraini Binti Ali</strong>
                             </div>
                         </div>
@@ -98,28 +98,28 @@
             </div>
 
             <div class="card-custom" style="width: 100%; box-sizing: border-box;">
-                <h4 style="font-weight: 700; margin-top: 0; margin-bottom: 20px;">Senarai Pendaftaran Subjek (KSSM)</h4>
+                <h4 style="font-weight: 700; margin-top: 0; margin-bottom: 20px;">Registered Subject List (KSSM)</h4>
                 <div style="overflow-x: auto;">
                     <table class="table-custom" style="margin-top: 0; box-shadow: none; border: 1px solid var(--table-border);">
                         <thead>
                             <tr>
-                                <th>Kod Subjek</th>
-                                <th>Nama Matapelajaran</th>
-                                <th>Kategori</th>
+                                <th>Subject Code</th>
+                                <th>Subject Name</th>
+                                <th>Category</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>KSSM-BM</td><td>Bahasa Melayu</td><td><span class="badge badge-info">Teras Wajib</span></td></tr>
-                            <tr><td>KSSM-BI</td><td>Bahasa Inggeris</td><td><span class="badge badge-info">Teras Wajib</span></td></tr>
-                            <tr><td>KSSM-MAT</td><td>Matematik</td><td><span class="badge badge-info">Teras Wajib</span></td></tr>
-                            <tr><td>KSSM-SN</td><td>Sains</td><td><span class="badge badge-info">Teras Wajib</span></td></tr>
-                            <tr><td>KSSM-SEJ</td><td>Sejarah</td><td><span class="badge badge-info">Teras Wajib</span></td></tr>
+                            <tr><td>KSSM-BM</td><td>Malay Language</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
+                            <tr><td>KSSM-BI</td><td>English Language</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
+                            <tr><td>KSSM-MAT</td><td>Mathematics</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
+                            <tr><td>KSSM-SN</td><td>Science</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
+                            <tr><td>KSSM-SEJ</td><td>History</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
                         </tbody>
                     </table>
                 </div>
                 
                 <div style="margin-top: 25px; text-align: right;">
-                    <button onclick="toggleProfileSection()" class="badge badge-warning" style="border: none; cursor: pointer; padding: 10px 18px;">Tutup Paparan ↑</button>
+                    <button onclick="toggleProfileSection()" class="badge badge-warning" style="border: none; cursor: pointer; padding: 10px 18px;">Close View ↑</button>
                 </div>
             </div>
 
@@ -128,7 +128,8 @@
 </div>
 
 <footer>
-    <p>© 2026 Portal Rekod Prestasi Pelajar Sekolah Menengah. Ditubuhkan untuk Penilaian IMS566.</p>
+    <p><center><small>&copy; 2026 Nurul Hanani Binti Hairun'nisak . All Rights Reserved. <br>
+    This is not the official website of Student Portal This website was developed for the purpose of learning HTML & CSS only.<br>Best view: Microsoft Edge / Google Chrome<br>Last Update: May 24th, 2026</small></center></p>
 </footer>
 
 </body>
