@@ -2,6 +2,29 @@
 // IMS566 CONTROLLER CODE - HIGH SCHOOL DASHBOARD PLATFORM LOGIC (ENGLISH)
 // ==========================================================================
 
+// ORIGINAL LOGIN FUNCTION (PRESERVED & UNTOUCHED)
+function login() {
+    const usernameInput = document.getElementById("username").value.trim();
+    const passwordInput = document.getElementById("password").value;
+    const errorMsg = document.getElementById("error");
+
+    const validUsername = "student123";
+    const validPassword = "12345";
+
+    if (usernameInput === "" || passwordInput === "") {
+        errorMsg.textContent = "Sila isi semua ruangan.";
+        return;
+    }
+
+    if (usernameInput === validUsername && passwordInput === validPassword) {
+        errorMsg.textContent = "";
+        localStorage.setItem("isLoggedIn", "true"); 
+        window.location.href = "dashboard.html"; 
+    } else {
+        errorMsg.textContent = "ID atau Kata Laluan Salah! Sila cuba lagi.";
+    }
+}
+
 function checkAuth() {
     if (localStorage.getItem("isLoggedIn") !== "true") {
         window.location.href = "index.html"; 
