@@ -1,139 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile - Student Portal</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
-    <script>checkAuth();</script>
-</head>
-<body>
+// ==========================================================================
+// IMS566 CONTROLLER CODE - SCHOOL PORTAL LOGIC WITH INTUITIVE ICON TOGGLER
+// ==========================================================================
 
-<div class="navbar">
-    <div class="nav-container">
-        <a href="dashboard.html" class="nav-brand">Student Portal</a>
-        <button class="hamburger-toggle" id="burgerIcon" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </button>
+function login() {
+    const usernameInput = document.getElementById("username").value.trim();
+    const passwordInput = document.getElementById("password").value;
+    const errorMsg = document.getElementById("error");
 
-        <div class="nav-links" id="navLinks">
-            <a href="dashboard.html" class="nav-item">Dashboard</a>
-            <a href="tasks.html" class="nav-item">Tasks</a>
-            <a href="students.html" class="nav-item active-link">Profile & Class</a>
-            <button id="themeBtn" class="theme-toggle-btn" onclick="toggleTheme()">🌙</button>
-            <a href="#" onclick="logout()" class="nav-item logout-btn">Log Out</a>
-        </div>
-    </div>
-</div>
+    const validUsername = "student123";
+    const validPassword = "12345";
 
-<div class="container">
-    <div class="page-title">
-        <h2 class="fw-bold m-0" style="font-size: 28px;">My Student Profile</h2>
-        <p class="text-muted mt-1">View your official academic bio and registered core courses. Click on your class name to view your classmates.</p>
-    </div>
+    if (usernameInput === "" || passwordInput === "") {
+        errorMsg.textContent = "Please fill in all fields.";
+        return;
+    }
 
-    <div id="main-profile-section">
-        
-        <div class="card-custom w-100 style-box-override" style="box-sizing: border-box;">
-            <div class="profile-flex-wrapper">
-                <div class="p-1 rounded-circle border border-primary border-3 avatar-container">
-                    <img src="https://api.dicebear.com/7.x/adventurer/svg?seed=Ahmad" alt="Avatar" class="avatar-img">
-                </div>
-                <div class="profile-info-block">
-                    <h3 class="fw-bold m-0 mb-1" style="font-size: 24px;">Ahmad Iqmal</h3>
-                    <span class="badge badge-success mb-3">Active Student</span>
-                    
-                    <div class="profile-details-grid">
-                        <div>
-                            <small class="text-muted d-block detail-label">CLASS NAME</small>
-                            <strong onclick="toggleClassNameSection()" class="class-name-clickable" title="Click to view classmates">2 Amanah 👥</strong>
-                        </div>
-                        <div>
-                            <small class="text-muted d-block detail-label">INDEX NUMBER</small>
-                            <strong style="font-size: 15px;">SMK-2026-001</strong>
-                        </div>
-                        <div>
-                            <small class="text-muted d-block detail-label">HOMEROOM TEACHER</small>
-                            <strong style="font-size: 15px;">Puan Noraini Binti Ali</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    if (usernameInput === validUsername && passwordInput === validPassword) {
+        errorMsg.textContent = "";
+        localStorage.setItem("isLoggedIn", "true"); 
+        window.location.href = "dashboard.html"; 
+    } else {
+        errorMsg.textContent = "Incorrect ID or Password! Please try again.";
+    }
+}
 
-        <div class="card-custom w-100 style-box-override" style="box-sizing: border-box;">
-            <h4 class="fw-bold mt-0 mb-4">Registered Subject List (KSSM)</h4>
-            <div style="overflow-x: auto;">
-                <table class="table-custom table-profile-override">
-                    <thead>
-                        <tr>
-                            <th>Subject Code</th>
-                            <th>Subject Name</th>
-                            <th>Category</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>KSSM-BM</td><td>Malay Language</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
-                        <tr><td>KSSM-BI</td><td>English Language</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
-                        <tr><td>KSSM-MAT</td><td>Mathematics</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
-                        <tr><td>KSSM-SN</td><td>Science</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
-                        <tr><td>KSSM-SEJ</td><td>History</td><td><span class="badge badge-info">Compulsory Core</span></td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+function checkAuth() {
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "index.html"; 
+    }
+}
 
-    <div id="class-directory-section" style="display: none;">
-        <h3 class="fw-bold mb-1" style="font-size: 22px;">Class Member Directory: 2 Amanah</h3>
-        <p class="text-muted mb-4">List of student accounts registered under the same academic homeroom group.</p>
-        
-        <div style="overflow-x: auto;">
-            <table class="table-custom">
-                <thead>
-                    <tr>
-                        <th>Index Number</th>
-                        <th>Classmate Name</th>
-                        <th>Class Name</th>
-                        <th>System Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>SMK-2026-001</td>
-                        <td><strong>Ahmad Iqmal</strong></td>
-                        <td>2 Amanah</td>
-                        <td><span class="badge badge-success">Your Profile</span></td>
-                    </tr>
-                    <tr>
-                        <td>SMK-2026-002</td>
-                        <td><strong>Muhammad Faiz</strong></td>
-                        <td>2 Amanah</td>
-                        <td><span class="badge badge-warning" style="opacity: 0.6;">Profile Locked</span></td>
-                    </tr>
-                    <tr>
-                        <td>SMK-2026-003</td>
-                        <td><strong>Nurul Ain</strong></td>
-                        <td>2 Amanah</td>
-                        <td><span class="badge badge-warning" style="opacity: 0.6;">Profile Locked</span></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="mt-4 text-end">
-            <button onclick="toggleClassNameSection()" class="badge badge-warning btn-hide-class">Hide Classmates ↑</button>
-        </div>
-    </div>
-</div>
+function logout() {
+    localStorage.removeItem("isLoggedIn"); 
+    window.location.href = "index.html";   
+}
 
-<footer>
-    <p><center><small>&copy; 2026 Nurul Hanani Binti Hairun'nisak . All Rights Reserved. <br>
-    <a href="aboutme.html">ABOUT ME</a><br>
-    This is not the official website of Student Portal This website was developed for the purpose of learning HTML & CSS only.<br>Best view: Microsoft Edge / Google Chrome<br>Last Update: May 24th, 2026</small></center></p>
-</footer>
+function toggleMenu() {
+    const navLinks = document.getElementById("navLinks");
+    const burgerIcon = document.getElementById("burgerIcon");
+    if (navLinks && burgerIcon) {
+        navLinks.classList.toggle("open");
+        burgerIcon.classList.toggle("open");
+    }
+}
 
-</body>
-</html>
+// THEME TOGGLER LOGIC
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute("data-theme");
+    const themeBtn = document.getElementById("themeBtn");
+    
+    if (currentTheme === "dark") {
+        document.documentElement.setAttribute("data-theme", "light");
+        localStorage.setItem("theme", "light");
+        if (themeBtn) themeBtn.innerHTML = "🌙"; 
+    } else {
+        document.documentElement.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+        if (themeBtn) themeBtn.innerHTML = "☀️"; 
+    }
+}
+
+function startExamCountdown() {
+    const examDate = new Date("Oct 15, 2026 08:00:00").getTime();
+
+    const timerInterval = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = examDate - now;
+
+        const dEl = document.getElementById("cd-days");
+        const hEl = document.getElementById("cd-hours");
+        const mEl = document.getElementById("cd-minutes");
+        const sEl = document.getElementById("cd-seconds");
+
+        if (!dEl) {
+            clearInterval(timerInterval);
+            return;
+        }
+
+        if (distance < 0) {
+            clearInterval(timerInterval);
+            document.getElementById("exam-countdown").innerHTML = "EXAMINATION IS CURRENTLY UNDERWAY!";
+            return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        dEl.innerText = days < 10 ? "0" + days : days;
+        hEl.innerText = hours < 10 ? "0" + hours : hours;
+        mEl.innerText = minutes < 10 ? "0" + minutes : minutes;
+        sEl.innerText = seconds < 10 ? "0" + seconds : seconds;
+    }, 1000);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    if (document.getElementById("cd-days")) {
+        startExamCountdown();
+    }
+
+    const currentTheme = localStorage.getItem("theme") || "light";
+    document.documentElement.setAttribute("data-theme", currentTheme);
+    
+    const themeBtn = document.getElementById("themeBtn");
+    if (themeBtn) {
+        themeBtn.innerHTML = currentTheme === "dark" ? "☀️" : "🌙";
+    }
+});
+
+// ==========================================================================
+// FUNGSI KHAS UNTUK HALAMAN PROFILE & DIREKTORI AHLI KELAS
+// ==========================================================================
+function toggleClassNameSection() {
+    const classBox = document.getElementById("class-directory-section");
+    if (!classBox) return;
+    
+    if (classBox.style.display === "none" || classBox.style.display === "") {
+        classBox.style.display = "block";
+        classBox.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        classBox.style.display = "none";
+    }
+}
