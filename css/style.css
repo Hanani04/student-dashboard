@@ -1,5 +1,5 @@
 /* ==========================================================================
-   IMS566 INDIVIDUAL PROJECT - MASTER STYLESHEET (ENGLISH VERSION)
+   IMS566 INDIVIDUAL PROJECT - high school PORTAL COMBINED CSS
    ========================================================================== */
 
 :root {
@@ -152,7 +152,7 @@ body {
     transition: var(--transition);
 }
 
-/* Special Floating Card Shadow & Transform Style */
+/* Floating Card Animation Styles */
 .card-floating {
     transform: translateY(-4px);
     box-shadow: 0 20px 35px rgba(2, 132, 199, 0.12);
@@ -165,7 +165,7 @@ body {
     font-weight: 600;
 }
 
-/* Twin Container Row layout for Tasks View */
+/* Twin Container layout for Tasks View */
 .card-flex {
     display: flex;
     gap: 24px;
@@ -219,7 +219,7 @@ body {
     margin-top: 4px;
 }
 
-/* Flex Framework Utility classes */
+/* Utilities Framework */
 .d-flex { display: flex; }
 .align-items-center { align-items: center; }
 .justify-content-between { justify-content: space-between; }
@@ -235,7 +235,6 @@ body {
 .fw-bold { font-weight: 600; }
 .m-0 { margin: 0; }
 
-/* Progress Container Components */
 .progress-container {
     background-color: var(--table-border);
     border-radius: 10px;
@@ -252,7 +251,6 @@ body {
     transition: width 0.5s ease;
 }
 
-/* Badge Utilities */
 .badge {
     display: inline-block;
     padding: 6px 12px;
@@ -266,7 +264,6 @@ body {
 .badge-warning { background-color: #fef9c3; color: #a16207; }
 .badge-info { background-color: #e0f2fe; color: #0369a1; }
 
-/* Table Components */
 .table-custom {
     width: 100%;
     border-collapse: collapse;
@@ -294,7 +291,7 @@ body {
     background-color: var(--table-td-hover);
 }
 
-/* Exam Countdown Layout */
+/* Exam Banner Countdown */
 .card-countdown-banner {
     background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(56, 189, 248, 0.05) 100%);
     border: 1px solid rgba(2, 132, 199, 0.2);
@@ -308,21 +305,9 @@ body {
     gap: 20px;
 }
 
-.countdown-title {
-    margin: 0;
-    color: var(--primary);
-    font-weight: 700;
-}
-
-.countdown-subtitle {
-    margin: 5px 0 0 0;
-    font-size: 13px;
-}
-
-.countdown-timer-display {
-    display: flex;
-    gap: 15px;
-}
+.countdown-title { margin: 0; color: var(--primary); font-weight: 700; }
+.countdown-subtitle { margin: 5px 0 0 0; font-size: 13px; }
+.countdown-timer-display { display: flex; gap: 15px; }
 
 .countdown-box {
     background-color: var(--card-bg);
@@ -344,26 +329,10 @@ body {
     text-transform: uppercase;
 }
 
-/* Co-Curricular items */
-.koko-item {
-    border-left: 3px solid var(--primary);
-    padding-left: 15px;
-    margin-bottom: 20px;
-}
-
-.koko-item:last-child {
-    margin-bottom: 0;
-}
-
-.koko-badge-margin {
-    margin-bottom: 6px;
-}
-
-.koko-title {
-    margin: 4px 0;
-    font-size: 15px;
-    font-weight: 600;
-}
+.koko-item { border-left: 3px solid var(--primary); padding-left: 15px; margin-bottom: 20px; }
+.koko-item:last-child { margin-bottom: 0; }
+.koko-badge-margin { margin-bottom: 6px; }
+.koko-title { margin: 4px 0; font-size: 15px; font-weight: 600; }
 
 .hamburger-toggle {
     display: none;
@@ -395,11 +364,7 @@ footer {
     transition: var(--transition);
 }
 
-footer a {
-    color: var(--primary);
-    text-decoration: none;
-    font-weight: 600;
-}
+footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
 
 @media (max-width: 768px) {
     .card-flex { flex-direction: column; }
