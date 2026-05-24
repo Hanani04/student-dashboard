@@ -1,5 +1,5 @@
 /* ==========================================================================
-   IMS566 INDIVIDUAL PROJECT - high school PORTAL COMBINED CSS
+   IMS566 INDIVIDUAL PROJECT - SYSTEM INTEGRATED INDUK STYLESHEET
    ========================================================================== */
 
 :root {
@@ -152,7 +152,7 @@ body {
     transition: var(--transition);
 }
 
-/* Floating Card Animation Styles */
+/* GAYA KAD TERAPUNG (FLOATING CARD) UNTUK DASHBOARD ATTENDANCE */
 .card-floating {
     transform: translateY(-4px);
     box-shadow: 0 20px 35px rgba(2, 132, 199, 0.12);
@@ -165,7 +165,7 @@ body {
     font-weight: 600;
 }
 
-/* Twin Container layout for Tasks View */
+/* SISTEM STRUKTUR KAD BERKEMBAR (TWIN CONTAINER GRID) - Halaman Tasks */
 .card-flex {
     display: flex;
     gap: 24px;
@@ -219,7 +219,7 @@ body {
     margin-top: 4px;
 }
 
-/* Utilities Framework */
+/* Rangka Kerja Flex & Jarak Utiliti Ringkas */
 .d-flex { display: flex; }
 .align-items-center { align-items: center; }
 .justify-content-between { justify-content: space-between; }
@@ -257,7 +257,6 @@ body {
     font-size: 12px;
     font-weight: 600;
     border-radius: 8px;
-    text-decoration: none;
 }
 
 .badge-success { background-color: #dcfce7; color: #15803d; }
@@ -291,7 +290,6 @@ body {
     background-color: var(--table-td-hover);
 }
 
-/* Exam Banner Countdown */
 .card-countdown-banner {
     background: linear-gradient(135deg, rgba(2, 132, 199, 0.08) 0%, rgba(56, 189, 248, 0.05) 100%);
     border: 1px solid rgba(2, 132, 199, 0.2);
@@ -353,19 +351,6 @@ body {
     transition: var(--transition);
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    background: var(--footer-bg);
-    border-top: 1px solid var(--table-border);
-    color: var(--footer-text);
-    font-size: 13px;
-    margin-top: auto;
-    transition: var(--transition);
-}
-
-footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
-
 @media (max-width: 768px) {
     .card-flex { flex-direction: column; }
     .hamburger-toggle { display: flex; }
@@ -386,30 +371,10 @@ footer a { color: var(--primary); text-decoration: none; font-weight: 600; }
     .row { flex-direction: column; }
 }
 
-/* ==========================================================================
-   ORIGINAL LOGIN & REGISTER PAGE STYLES (PRESERVED & UNTOUCHED)
-   ========================================================================== */
-.login-body { 
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
-    height: 100vh; 
-}
-.login-card { 
-    background: rgba(255, 255, 255, 0.95); 
-    border: none; 
-    border-radius: 24px; 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3); 
-    backdrop-filter: blur(10px); 
-}
-.login-card .form-control { 
-    border-radius: 12px; 
-    padding: 12px 16px; 
-    border: 1px solid #e2e8f0; 
-    background-color: #f8fafc; 
-}
-.btn-login { 
-    border-radius: 12px; 
-    padding: 12px; 
-    font-weight: 600; 
-    background: linear-gradient(45deg, #0284c7, #38bdf8); 
-    border: none; 
-}
+/* GAYA REKA BENTUK HALAMAN LOGIN & DAFTAR (ASAL & SELAMAT) */
+.login-body { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); height: 100vh; }
+.login-card { background: rgba(255, 255, 255, 0.95); border: none; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
+.login-card .form-control { border-radius: 12px; padding: 12px 16px; border: 1px solid #e2e8f0; background-color: #f8fafc; }
+.btn-login { border-radius: 12px; padding: 12px; font-weight: 600; background: linear-gradient(45deg, #0284c7, #38bdf8); border: none; }
+
+footer { text-align: center; padding: 30px; background: var(--footer-bg); border-top: 1px solid var(--table-border); color: var(--footer-text); font-size: 13px; margin-top: auto; transition: var(--transition); }
