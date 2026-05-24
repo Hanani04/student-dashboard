@@ -38,17 +38,17 @@
                 <h5 class="fw-bold m-0">Nurul Hanani</h5>
                 <p class="text-muted small mb-3">ID: student123</p>
                 
-                <button onclick="toggleProfileSection()" class="btn btn-outline-primary btn-sm w-100 rounded-pill py-2" style="font-weight: 600;">
-                    Kelas: 5 Amanah (Klik Maklumat) ↓
+                <button onclick="toggleClassmates()" class="btn btn-outline-primary btn-sm w-100 rounded-pill py-2" style="font-weight: 600;">
+                    Kelas: 5 Amanah (Lihat Ahli Kelas) ↓
                 </button>
             </div>
         </div>
 
         <div class="col-md-8">
-            <div id="interactive-profile-section" class="card-custom shadow-sm" style="display: none;">
+            <div id="interactive-profile-section" class="card-custom shadow-sm">
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4 class="m-0 fw-bold">Maklumat Kursus & Kelas (5 Amanah)</h4>
-                    <span class="badge badge-success">Sesi 2026 Active</span>
+                    <h4 class="m-0 fw-bold">Matapelajaran Diambil (Nurul Hanani)</h4>
+                    <span class="badge badge-success">Sesi 2026 Aktif</span>
                 </div>
                 
                 <p class="text-muted small">Berikut adalah senarai matapelajaran teras pendaftaran wajib bagi kelas anda:</p>
@@ -71,16 +71,33 @@
                         </tbody>
                     </table>
                 </div>
-                
-                <div style="margin-top: 25px; text-align: right;">
-                    <button onclick="toggleProfileSection()" class="badge badge-warning" style="border: none; cursor: pointer; padding: 10px 18px;">Tutup Paparan ↑</button>
+            </div>
+
+            <div id="classmates-section" class="card-custom shadow-sm mt-4" style="display: none;">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="fw-bold m-0">Senarai Ahli Kelas (5 Amanah)</h4>
+                    <button onclick="toggleClassmates()" class="badge badge-warning" style="border: none; cursor: pointer; padding: 6px 12px;">Sorok ↑</button>
+                </div>
+                <p class="text-muted small">Rakan sekelas yang berdaftar di bawah pengurusan kelas yang sama:</p>
+                <div style="overflow-x: auto;">
+                    <table class="table-custom">
+                        <thead>
+                            <tr>
+                                <th>ID Murid</th>
+                                <th>Nama Penuh</th>
+                                <th>Peranan / Jawatan</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>student101</td><td>Ahmad Zaki Bin Md Noor</td><td>Ketua Kelas</td></tr>
+                            <tr><td>student105</td><td>Farah Aliah Binti Razali</td><td>Penolong Ketua Kelas</td></tr>
+                            <tr><td>student112</td><td>Muhammad Harith Bin Ishak</td><td>Ahli Aktif</td></tr>
+                            <tr><td>student118</td><td>Siti Aminah Binti Yusof</td><td>Ahli Aktif</td></tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
-            <div class="card-custom">
-                <h4>Panduan Sistem Info</h4>
-                <p class="small text-muted m-0">Gunakan butang pada nama kelas di bahagian kiri untuk membuka atau menutup panel jadual matapelajaran berdaftar anda secara masa-nyata.</p>
-            </div>
         </div>
     </div>
 </div>
