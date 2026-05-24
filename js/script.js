@@ -1,8 +1,8 @@
 // ==========================================================================
-// IMS566 MASTER CONTROLLER CODE - INTEGRATED PORTAL LOGIC (ALL VIEWS)
+// IMS566 MASTER INDUK CONTROLLER - INTEGRATED CORE LOGIC (ALL VIEWS)
 // ==========================================================================
 
-// 1. LOGIK SISTEM DAFTAR & MASUK (PRESERVED)
+// 1. AUTHENTICATION CONTROLLER (LOGIN/LOGOUT)
 function login() {
     const usernameInput = document.getElementById("username").value.trim();
     const passwordInput = document.getElementById("password").value;
@@ -12,7 +12,7 @@ function login() {
     const validPassword = "12345";
 
     if (usernameInput === "" || passwordInput === "") {
-        errorMsg.textContent = "Sila isi semua ruangan.";
+        errorMsg.textContent = "Please fill in all fields.";
         return;
     }
 
@@ -21,7 +21,7 @@ function login() {
         localStorage.setItem("isLoggedIn", "true"); 
         window.location.href = "dashboard.html"; 
     } else {
-        errorMsg.textContent = "ID atau Kata Laluan Salah! Sila cuba lagi.";
+        errorMsg.textContent = "Invalid Credentials! Please try again.";
     }
 }
 
@@ -36,7 +36,7 @@ function logout() {
     window.location.href = "index.html";   
 }
 
-// 2. INTERAKSI MENU & TEMA MASA-NYATA
+// 2. INTERFACE UTILITIES (THEME & MENU TOGGLE)
 function toggleMenu() {
     const navLinks = document.getElementById("navLinks");
     const burgerIcon = document.getElementById("burgerIcon");
@@ -61,53 +61,22 @@ function toggleTheme() {
     }
 }
 
-// 3. LOGIK PAPARAN PROFIL BARU: PAPAR/SOROK AHLI KELAS LAIN
+// 3. TINDIH (OVERWRITE): LOGIK PAPAR/SOROK KELAS AHMAD IQMAL
 function toggleClassmates() {
     const classmatesBox = document.getElementById("classmates-section");
     if (!classmatesBox) return;
     
     if (classmatesBox.style.display === "none" || classmatesBox.style.display === "") {
         classmatesBox.style.display = "block";
+        classmatesBox.scrollIntoView({ behavior: 'smooth' }); // Auto scroll ke senarai ahli
     } else {
         classmatesBox.style.display = "none";
     }
 }
 
-// 4. PEMASA PEPERIKSAAN AKHIR TAHUN
-function startExamCountdown() {
-    const targetDate = new Date("October 15, 2026 08:00:00").getTime();
-
-    const interval = setInterval(() => {
-        const now = new Date().getTime();
-        const difference = targetDate - now;
-
-        if (difference <= 0) {
-            clearInterval(interval);
-            const display = document.getElementById("exam-countdown");
-            if (display) display.innerHTML = "<b>Examination is Now Active!</b>";
-            return;
-        }
-
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-        const dBox = document.getElementById("cd-days");
-        const hBox = document.getElementById("cd-hours");
-        const mBox = document.getElementById("cd-minutes");
-        const sBox = document.getElementById("cd-seconds");
-
-        if (dBox) dBox.textContent = String(days).padStart(2, '0');
-        if (hBox) hBox.textContent = String(hours).padStart(2, '0');
-        if (mBox) mBox.textContent = String(minutes).padStart(2, '0');
-        if (sBox) sBox.textContent = String(seconds).padStart(2, '0');
-    }, 1000);
-}
-
-// 5. PENYEDIAAN CARTA (GLOBAL DOM INITIALIZATION)
+// 4. CHART & APP INITIALIZATION ON DOM LOAD
 document.addEventListener("DOMContentLoaded", function () {
-    // Pengurusan Tema
+    // Sync Theme Storage
     const currentTheme = localStorage.getItem("theme") || "light";
     document.documentElement.setAttribute("data-theme", currentTheme);
     const themeBtn = document.getElementById("themeBtn");
@@ -115,12 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         themeBtn.innerHTML = (currentTheme === "dark") ? "☀️" : "🌙";
     }
 
-    // Aktifkan Countdown jika elemen wujud
-    if (document.getElementById("cd-days")) {
-        startExamCountdown();
-    }
-
-    // Dashboard: Attendance Floating Line Chart
+    // Attendance Line Chart (Dashboard)
     const attendanceCtx = document.getElementById('attendanceChart');
     if (attendanceCtx) {
         new Chart(attendanceCtx.getContext('2d'), {
@@ -142,15 +106,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 responsive: true,
                 maintainAspectRatio: false,
                 scales: {
-                    x: { display: true, ticks: { font: { size: 10 } } },
-                    y: { display: true, beginAtZero: false, min: 80, max: 100, ticks: { font: { size: 10 } } }
+                    x: { display: true },
+                    y: { beginAtZero: false, min: 80, max: 100 }
                 },
                 plugins: { legend: { display: false } }
             }
         });
     }
 
-    // Tasks: Weekly Homework Stacked Bar Chart
+    // Tasks Progress Stacked Bar Chart (Tasks View)
     const taskProgressCtx = document.getElementById('taskProgressChart');
     if (taskProgressCtx) {
         new Chart(taskProgressCtx.getContext('2d'), {
@@ -158,29 +122,13 @@ document.addEventListener("DOMContentLoaded", function () {
             data: {
                 labels: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
                 datasets: [
-                    {
-                        label: 'Complete',
-                        data: [5, 7, 4, 8, 6, 5, 6],
-                        backgroundColor: '#0284c7',
-                        borderRadius: 6,
-                    },
-                    {
-                        label: 'Pending',
-                        data: [2, 1, 3, 2, 1, 2, 1],
-                        backgroundColor: '#fb923c',
-                        borderRadius: 6,
-                    }
+                    { label: 'Complete', data: [5, 7, 4, 8, 6, 5, 6], backgroundColor: '#0284c7', borderRadius: 6 },
+                    { label: 'Pending', data: [2, 1, 3, 2, 1, 2, 1], backgroundColor: '#fb923c', borderRadius: 6 }
                 ]
             },
             options: {
                 responsive: true,
-                scales: {
-                    x: { stacked: true },
-                    y: { stacked: true, beginAtZero: true, max: 12 }
-                },
-                plugins: {
-                    legend: { position: 'top', align: 'start' }
-                }
+                scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } }
             }
         });
     }
